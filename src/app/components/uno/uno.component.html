@@ -1,0 +1,60 @@
+<div class="container">
+    <h1>Aplicación inicial Angular</h1>
+    <p>
+      Aplicacion de Angular para la asignatura DI. Realizado por: {{cat}}. {{nombre}}
+    </p>
+  
+    <p>
+      Pulsaciones: {{pulsaciones}}
+    </p>
+  
+    <div class="row">
+      <button class="col btn btn-primary" (click)="sumar()">+1 pulsacion</button>
+      <button class="col btn btn-primary" (click)="restar()">-1 pulsacion</button>
+      <button class="col btn btn-primary" (click)="reset()">reset pulsaciones</button>
+    </div>
+  
+    <div class="row m-4">
+      <select class="col form-control" #selectCat (change)="tratamientoCambiado()">
+        <option>Sr</option>
+        <option>Srt</option>
+        <option>Sra</option>
+        <option>Srta</option>
+      </select>
+      <input class="col form-control" #inputNombre type="text" placeholder="Introduce nombre"/>
+      <button class="col btn btn-primary" (click)="cambiarNombre(selectCat.value, inputNombre.value)">Cambiar nombre</button>
+    </div>
+  
+    <div class="row mb-4">
+  
+      <div class="col-4">
+        <input class="form-control" #inputOpUno type="number" placeholder="Introduce primer operador"/>
+        <input class="form-control" #inputOpDos type="number" placeholder="Introduce segundo operador"/>
+  
+        <select class="col form-control" #selectOperacion (change)="tratamientoCambiado()">
+          <option>Suma</option>
+          <option>Resta</option>
+          <option>Multiplicacion</option>
+          <option>Division</option>
+        </select>
+  
+        <button class="btn btn-primary" (click)="calcularOperacion(inputOpUno.value, inputOpDos.value, selectOperacion.value)">Calcular</button>
+      </div>
+  
+      <div class="col-8">
+        <p class="form-control">El resultado de la {{tipoOperacion}} es {{operacion}}</p>
+      </div>
+  
+    </div>
+  
+    <br>
+  
+    <div class="card" style="width: 18rem;">
+      <img [src]="ruta" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Angular</h5>
+        <p class="card-text">Angular es un framework JS destinado a la realización de aplicaiones web SPA</p>
+        <button class="btn btn-primary" (click)="cambiarDatos()">Ver detalle</button>
+      </div>
+    </div>
+</div>
